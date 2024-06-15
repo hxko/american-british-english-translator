@@ -35,7 +35,7 @@ class Translator {
     translatedText = this.replaceWords(translatedText, this.americanToBritishSpelling);
 
     // Translate American titles to British titles
-    translatedText = this.replaceWords(translatedText, this.americanToBritishTitles);
+    translatedText = this.replaceTitles(translatedText, this.americanToBritishTitles);
 
     // Translate time format (e.g., 10:30 to 10.30)
     translatedText = this.translateTimeFormat(translatedText, 'american-to-british');
@@ -54,20 +54,23 @@ class Translator {
     translatedText = this.replaceWords(translatedText, this.britishToAmericanSpelling);
 
     // Translate British titles to American titles
-    translatedText = this.replaceWords(translatedText, this.britishToAmericanTitles);
+    translatedText = this.replaceTitles(translatedText, this.britishToAmericanTitles);
 
     // Translate time format (e.g., 10.30 to 10:30)
     translatedText = this.translateTimeFormat(translatedText, 'british-to-american');
 
     return translatedText;
   }
-  replaceWords(text, dict) {
+  replaceTitles(text, dict) {
     let replacedText = text;
 
-    // Iterate through each dictionary entry
+    // Iterate through each title dictionary entry
     Object.entries(dict).forEach(([originalWord, replacementWord]) => {
-      // Adjusted regex pattern to handle titles with periods and match boundaries correctly
-      const regex = new RegExp(`\\b${originalWord.replace('.', '\\.')}(?=\\s|$)`, 'gi');
+      // Construct the regular expression pattern with word boundary and lookahead for punctuation
+      const regexPattern = `\\b(${originalWord.replace(/\./g, '\\.')})(?=[.,?!\\s])`;
+      const regex = new RegExp(regexPattern, 'gi');
+
+      // Replace occurrences of originalWord with replacementWord
       replacedText = replacedText.replace(regex, (match) => {
         // Determine if the match is uppercase
         const isUppercase = match.charAt(0) === match.charAt(0).toUpperCase();
@@ -81,6 +84,33 @@ class Translator {
         }
 
         return highlightedWord;
+      });
+    });
+
+    return replacedText;
+  }
+
+  // Helper method to replace words based on a dictionary with highlighting
+  replaceWords(text, dict) {
+    let replacedText = text;
+
+    // Iterate through each dictionary entry
+    Object.entries(dict).forEach(([originalWord, replacementWord]) => {
+      // Adjusted regex pattern to include non-word characters and boundaries
+      const regex = new RegExp(`\\b${originalWord}\\b`, 'gi');
+      replacedText = replacedText.replace(regex, (match) => {
+        // Check if the match is uppercase
+        const isUppercase = match.charAt(0) === match.charAt(0).toUpperCase();
+
+        // Wrap translated word in <span class="highlight"></span>
+        const highlightedWord = `<span class="highlight">${replacementWord}</span>`;
+
+        // Preserve the case of the original matched text
+        if (isUppercase) {
+          return highlightedWord.charAt(0).toUpperCase() + highlightedWord.slice(1);
+        } else {
+          return highlightedWord;
+        }
       });
     });
 
