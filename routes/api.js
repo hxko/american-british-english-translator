@@ -8,7 +8,6 @@ module.exports = function (app) {
 
   app.route('/api/translate')
     .post((req, res) => {
-      console.log("req.body: ", req.body);
       const { locale, text } = req.body;
       // Error handling
       if (!locale || text === undefined) {
@@ -33,7 +32,6 @@ module.exports = function (app) {
       if (translation == text || !translation) {
         res.json({ text, translation: "Everything looks good to me!" });
       } else {
-        console.log("res.json: ", { text, translation: translation });
         res.json({ text, translation: translation });
       }
 
