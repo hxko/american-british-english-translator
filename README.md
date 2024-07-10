@@ -16,30 +16,31 @@ This Project is part of the FreeCodeCamp - Quality Assurance.
 
 ### Unit Tests (`tests/1_unit-tests.js`)
 
-- Translate "Mangoes are my favorite fruit." to British English
-- Translate "I ate yogurt for breakfast." to British English
-- Translate "We had a party at my friend's condo." to British English
-- Translate "Can you toss this in the trashcan for me?" to British English
-- Translate "The parking lot was full." to British English
-- Translate "Like a high tech Rube Goldberg machine." to British English
-- Translate "To play hooky means to skip class or work." to British English
-- Translate "No Mr. Bond, I expect you to die." to British English
-- Translate "Dr. Grosh will see you now." to British English
-- Translate "Lunch is at 12:15 today." to British English
-- Translate "We watched the footie match for a while." to American English
-- Translate "Paracetamol takes up to an hour to work." to American English
-- Translate "First, caramelise the onions." to American English
-- Translate "I spent the bank holiday at the funfair." to American English
-- Translate "I had a bicky then went to the chippy." to American English
-- Translate "I've just got bits and bobs in my bum bag." to American English
-- Translate "The car boot sale at Boxted Airfield was called off." to American English
-- Translate "Have you met Mrs Kalyani?" to American English
-- Translate "Prof Joyner of King's College, London." to American English
-- Translate "Tea time is usually around 4 or 4.30." to American English
-- Highlight translation in "Mangoes are my favorite fruit."
-- Highlight translation in "I ate yogurt for breakfast."
-- Highlight translation in "We watched the footie match for a while."
-- Highlight translation in "Paracetamol takes up to an hour to work."
+- Translate "_Mangoes are my favorite fruit._" to British English
+- Translate "_I ate yogurt for breakfast._" to British English
+- Translate "_We had a party at my friend's condo._" to British English
+- Translate "_Can you toss this in the trashcan for me?_" to British English
+- Translate "_The parking lot was full._" to British English
+- Translate "_Like a high tech Rube Goldberg machine._" to British English
+- Translate "_To play hooky means to skip class or work._" to British English
+- Translate "_No Mr. Bond, I expect you to die._" to British English
+- Translate "_Dr. Grosh will see you now._" to British English
+- Translate "_Lunch is at 12:15 today._" to British English
+- Translate "_We watched the footie match for a while._" to American English
+- Translate "_Paracetamol takes up to an hour to work._" to American English
+- Translate "_First, caramelise the onions._" to American English
+- Translate "_I spent the bank holiday at the funfair._" to American English
+- Translate "_I had a bicky then went to the chippy._" to American English
+- Translate "_I've just got bits and bobs in my bum bag._" to American English
+- Translate "_The car boot sale at Boxted Airfield was called off._" to American English
+- Translate "_Have you met Mrs Kalyani?_" to American English
+- Translate "_Prof Joyner of King's College, London._" to American English
+- Translate "_Tea time is usually around 4 or 4.30._" to American English
+- Highlight translation in "_Mangoes are my favorite fruit._"
+- Highlight translation in "_I ate yogurt for breakfast._"
+- Highlight translation in "_We watched the footie match for a while._"
+- Highlight translation in "_Paracetamol takes up to an hour to work._"
+
 
 ### Functional Tests (`tests/2_functional-tests.js`)
 
